@@ -1,0 +1,992 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box ;
+}
+body {
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+body.light{
+    background-color: #fff;
+}
+body.dark{
+    background-color: #e3e3e3;
+}
+
+/* header css */
+header{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    padding: 1.5%;
+    box-shadow: 5px 5px 10px #e3e3e3;
+    transition: all 1s ease-in-out;
+    position: sticky;
+    top: 0;
+    z-index: 2; 
+}
+.light header{
+    background-color: white;
+}
+.dark header{
+    background-color: rgb(43, 42, 42);
+} 
+header .logo a{
+    text-decoration: none;
+}
+.light header .logo a{
+    color: #ff6867;
+}
+.dark header .logo a{
+    color: #cc4443;
+}
+header #dateDisplay{
+    color: rgb(49, 111, 245);
+}
+header .right-top{
+    display: flex;
+}
+header .theme{
+   margin-left: 50px;
+   padding: 2px 10px;
+   position: relative;
+   width: 60px;
+   height: 28px;
+   border-radius: 12px;
+}
+.light header .theme{
+    background:#ff6867;
+}
+.dark header .theme{
+    background:#e3e3e3;
+}
+header .theme .fa-sun{
+    position: absolute;
+    left: 8px;
+    margin-top: 3px;
+}
+header .theme .fa-moon{
+    position: absolute;
+    right: 8px;
+    margin-top: 3px;
+}
+header .theme a{
+    color: #474646;
+}
+header .theme .overlay{
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    display: inline-block;
+    z-index: 0;
+    position: absolute;
+    left: 5px;
+    transition: all 0.5s ease-in-out;
+}
+.light header .theme .overlay{
+    background: #e3e3e3;
+}
+.dark header .theme .overlay{
+    background: #cc4443;
+}
+header .toggle{
+    display: none;
+    cursor: pointer;
+}
+
+
+/* left nav css */
+.left-nav {
+    height: 80vh;
+    width: 20%;
+    position: fixed;
+    bottom: 0;
+    border-top-right-radius: 8px;
+    color: #FFFFFF;
+    transition: all 0.8s ease-in-out;
+}
+.light .left-nav{
+    background: #ff6867;
+}
+.dark .left-nav{
+    background: #cc4443;
+}
+.left-nav .exit{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 28px;
+    display: none;
+}
+.left-nav .profile-details{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    padding-top: 55px;
+}
+.left-nav img{
+    height: 100px;
+    position: absolute;
+    width: 100px;
+    border-radius: 50%;
+    left: 50%;
+    top: -5%;
+    transform: translate(-50%,-50%);
+}
+.left-nav .name{
+    padding-bottom: 3px;
+    text-transform: capitalize;
+}
+.left-nav .tabs{
+    display: grid;
+    grid-template-rows: repeat(3,50px);
+    align-items: center;
+    margin:30px 20px;
+    row-gap: 10px;
+    padding-left: 10px;
+    height: 50vh;
+}
+.left-nav .tabs .element{
+    padding: 15px;
+    border-radius: 8px;
+}
+.left-nav .tabs .element:hover{
+    background-color: #ffff;
+}
+.light .left-nav .tabs .element:hover a{
+    color: #ff6867;
+}
+.dark .left-nav .tabs .element:hover a{
+    color: #000;
+}
+.left-nav .tabs .element a{
+    text-decoration: none;
+    color: #FFFFFF;
+    font-weight: 300;
+    font-size: 18px;
+    text-transform: capitalize;
+    transition: all 0.4s ease-in-out;
+}
+.left-nav .tabs .active{
+    background-color: #ffff;
+}
+.light .left-nav .tabs .active a{
+    color: #ff6867;
+}
+.dark .left-nav .tabs .active a{
+    color: #000;
+}
+.left-nav .logout-tab{
+    padding-left: 10px;
+    align-items: center;
+    margin:20px;
+    position: absolute;
+    bottom: 10px;
+}
+.left-nav .logout-tab button{
+    border: none;
+    padding: 10px;
+    margin-top: -10px;
+    background: none;
+    color: #ffff;
+    font-size: 18px;
+}
+
+/* dashboard section */
+.dashboard {
+    position: relative;
+    left: 20%;
+    width: 80vw;
+    padding: 20px 40px;
+}
+.dashboard h2 .fa-hand-paper{
+    animation: wave 1s infinite;
+}
+.dashboard .windows{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,auto);
+    grid-template-areas:
+    "to-do-window task-status-window"
+    "to-do-window completed-tasks-window";
+    padding: 20px;
+    column-gap: 15px;
+    row-gap: 15px;
+    margin-top: 15px;
+    border: 1px solid #e3e3e3;
+    transition: all 1s ease-in-out;
+}
+.light .dashboard .windows{
+    border: 1px solid #e3e3e3;
+}
+.dark .dashboard .windows{
+    border: 1px solid #000;
+}
+.dashboard .windows .to-do-window{
+    padding: 15px;
+    grid-area: to-do-window;
+    border-radius: 10px;
+}
+.light .dashboard .windows .to-do-window,
+.light .dashboard .windows .task-status-window,
+.light .dashboard .windows .completed-tasks-window,
+.light .task-categories .task-categories-container .tasks{
+   box-shadow: 5px 5px 10px #e3e3e3,-5px -5px 10px #e3e3e3;
+}
+.dark .dashboard .windows .to-do-window,
+.dark .dashboard .windows .task-status-window,
+.dark .dashboard .windows .completed-tasks-window,
+.dark .task-categories .task-categories-container .tasks,
+.dark .task-categories .task-categories-container .tasks .task .left-side .btn-container button{
+   box-shadow: 5px 5px 10px #bfbfbf,-5px -5px 10px #bfbfbf;
+}
+.dashboard .windows .to-do-window .today-tasks{
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 8px;
+}
+.light .dashboard .windows .to-do-window .today-tasks,
+.light .dashboard .windows .completed-tasks-window .completed-tasks{
+    border: 1px solid #605f5f;
+}
+.dark .dashboard .windows .to-do-window .today-tasks,
+.dark .dashboard .windows .completed-tasks-window .completed-tasks{
+    border: 1px solid #969696;
+}
+.dashboard .windows .to-do-window>.title{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+.light .dashboard .windows .to-do-window>.title,
+.light .dashboard .windows .to-do-window>.title a,
+.light .dashboard .windows .task-status-window .title,
+.light .dashboard .windows .completed-tasks-window>.title{
+    color: #ff6867;
+}
+.dark .dashboard .windows .to-do-window>.title,
+.dark .dashboard .windows .to-do-window>.title a,
+.dark .dashboard .windows .task-status-window .title,
+.dark .dashboard .windows .completed-tasks-window>.title{
+     color: #cc4443;
+}
+.dashboard .windows .to-do-window>.title a{
+    text-decoration: none;
+}
+.dashboard .windows .to-do-window .date{
+    margin-bottom: 8px;
+}
+.light .dashboard .windows .to-do-window .date{
+    color: #a5a5a5;
+}
+.dark .dashboard .windows .to-do-window .date{
+    color: #888787;
+}
+.dashboard .windows .to-do-window .window-details{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 30px 1fr 1fr;
+}
+.dashboard .windows .to-do-window .window-details .status,
+.task-categories .task-categories-container .tasks .task .task-status{
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    border-width: 4px;
+    border-style: solid;
+    border-radius: 50%;
+}
+.dashboard .windows .to-do-window .window-details [data-status="not-started"],
+.task-categories .task-categories-container .tasks .task [data-status="not-started"]{
+    border-color: red;
+}
+.dashboard .windows .to-do-window .window-details [data-status="done"],
+.task-categories .task-categories-container .tasks .task [data-status="completed"]{
+    border-color: green;
+
+}.dashboard .windows .to-do-window .window-details [data-status="in-progress"],
+.task-categories .task-categories-container .tasks .task [data-status="in-progress"]{
+    border-color: blue;
+}
+.dashboard .windows .to-do-window .window-details .para .title{
+    text-transform: capitalize;
+    font-size: 21px;
+}
+.dashboard .windows .to-do-window .window-details .para .details{
+    height: 60px;
+    text-overflow: ellipsis; 
+    overflow: hidden;  
+}
+.light .dashboard .windows .to-do-window .window-details .para .details,
+.light .dashboard .windows .completed-tasks-window .window-details .para .details{
+    color: #adabab;
+}
+.dark .dashboard .windows .to-do-window .window-details .para .details,
+.dark .dashboard .windows .completed-tasks-window .window-details .para .details{
+    color: #888787;
+}
+.dashboard .windows .to-do-window .window-details .img-container{
+    display: flex;
+    justify-content: center;
+}
+.dashboard .windows .to-do-window .window-details img{
+    height: 130px;
+    width: 130px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.dashboard .windows .task-status-window{
+    border-radius: 8px;
+    padding: 20px;
+    grid-area: task-status-window;
+}
+.dashboard .windows .task-status-window .title{
+    margin-bottom: 15px;
+}
+.dashboard .windows .task-status-window .progress-bars .bar{
+     background-color: #e3e3e3;
+     width: 70%;
+     height: 15px;
+     margin-bottom: 10px;
+     border-radius: 8px;
+     margin-top: 4px;
+}
+.dashboard .windows .task-status-window .progress-bars .bar div{
+     height: 15px;
+     border-radius: 8px;
+     text-align: center;
+     font-size: 14px;
+     color: white;
+}
+.dashboard .windows .task-status-window .progress-bars span{
+    text-transform: capitalize;
+    font-size: 21px;
+    margin-bottom: 8px;
+}
+.dashboard .windows .completed-tasks-window{
+    grid-area: completed-tasks-window;
+    border-radius: 8px;
+    padding: 20px;
+}
+.dashboard .windows .completed-tasks-window .completed-tasks{
+    border-radius: 8px;
+    margin-top: 10px;
+    padding: 8px;
+}
+.dashboard .windows .completed-tasks-window .window-details{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 30px 1fr 1fr;
+}
+.dashboard .windows .completed-tasks-window .window-details .status{
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    border-width: 4px;
+    border-style: solid;
+    border-radius: 50%;
+    color: green;
+}
+.dashboard .windows .completed-tasks-window .window-details .para .title{
+    text-transform: capitalize;
+    font-size: 21px;
+}
+.dashboard .windows .completed-tasks-window .window-details .para .details{
+    height: 60px;
+    text-overflow: ellipsis; 
+    overflow: hidden;  
+}
+.dashboard .windows .completed-tasks-window .window-details .img-container{
+    display: flex;
+    justify-content: center;
+}
+.dashboard .windows .completed-tasks-window .window-details img{
+    height: 130px;
+    width: 130px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+@keyframes wave {
+    0%{
+        transform: rotate(30deg);
+    }
+    50%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(30deg);
+    }
+}
+
+/* add task section */
+.add-task,
+.modal-container{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    visibility:hidden;
+    overflow: hidden;
+    z-index: 3;
+    background:rgb(0, 0,0,0.8);
+}
+.add-task .add-task-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #373737,-5px -5px 10px #373737;
+    width: 45%;
+    height: 50%;
+}
+.add-task .add-task-container .title{
+    text-transform: capitalize;
+    font-size: 24px;
+    color: #ff6867;
+    display: flex;
+    margin-bottom: 30px;
+    justify-content: space-between;
+}
+.add-task .add-task-container form{
+    display: flex;
+    flex-direction: column;
+}
+.add-task .add-task-container form input[type="text"],
+.modal input{
+    border: none;
+    border-radius: 8px;
+    background-color: #e3e3e3;
+    font-size: 18px;
+    margin-bottom: 15px;
+    padding: 10px 15px;
+}
+.add-task .add-task-container form input[type="file"]{
+    border: none;
+    border-radius: 10px;
+    background-color: #c14f4f;
+    width: 40%;
+    color: white;
+}
+.add-task .add-task-container form input[type="submit"]{
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 10px 10px;
+    width: 50%;
+    color: white;
+    place-self: center;
+    position: absolute;
+    bottom: 30px;
+    background-color: #c14f4f;
+    cursor: pointer;
+}
+
+/* task categroies css */
+.task-categories{
+    display: none;
+    position: relative;
+    left: 17%;
+    padding: 30px 40px;
+    width: 80vw;
+}
+.task-categories h2{
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.task-categories .task-categories-container{
+    justify-items: center;
+}
+.task-categories .task-categories-container .filter-container{
+    text-align: center;
+    text-transform: capitalize;
+    margin-top: 5px;
+}
+.light .task-categories .task-categories-container .filter-container span{
+    color: #ff6867;
+    background-color: #ece9e9;
+}
+.dark .task-categories .task-categories-container .filter-container span{
+    color: #ece9e9;
+    background-color: #cc4443;
+}
+.task-categories .task-categories-container .filter-container span{
+    padding: 10px 20px;
+    margin-left: 20px;
+    border-radius: 12px;
+    width: 30px;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+.light .task-categories .task-categories-container .filter-container span:hover,
+.light .task-categories .task-categories-container .filter-container span.active{
+    background-color: #ff6867;
+    color: #ece9e9;
+}
+.dark .task-categories .task-categories-container .filter-container span:hover,
+.dark .task-categories .task-categories-container .filter-container span.active{
+    background-color: #c0c0c0;
+    color: #cc4443;
+}
+.task-categories .task-categories-container .tasks{
+    padding: 20px;
+    margin-top: 50px;
+    width: 80%;
+    border-radius: 8px;
+}
+.task-categories .task-categories-container .tasks .task{
+    display: grid;
+    grid-template-columns: 30px 1fr 1fr;
+    padding:10px;
+    margin-bottom: 30px;
+    margin-left: 15%;
+    border-bottom: 1px dotted #000;
+}
+.task-categories .task-categories-container .tasks .task .left-side{
+    position: relative;
+}
+.task-categories .task-categories-container .tasks .task .left-side .title{
+    text-transform: capitalize;
+    font-size: 21px;
+    font-weight: 800;
+    font-style: italic;
+}
+.task-categories .task-categories-container .tasks .task .left-side .details{
+    width: 500px;
+    height: 70px;
+    text-overflow: ellipsis;    
+    overflow: hidden;
+    padding: 10px;
+    color: #888787;
+}
+.task-categories .task-categories-container .tasks .task .left-side .btn-container{
+    position: absolute;
+    bottom: 10px;
+    margin-top: 20px;
+}
+.task-categories .task-categories-container .tasks .task .left-side .btn-container button{
+    border: none;
+    padding: 7px 30px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-left: 12px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.5s ease-in-out;
+}
+.light .task-categories .task-categories-container .tasks .task .left-side .btn-container button{
+    background-color: #e3e3e3;
+    color: #000;
+}
+.dark .task-categories .task-categories-container .tasks .task .left-side .btn-container button{
+    background-color: #e3e3e3;
+    color: #cc4443;
+}
+.task-categories .task-categories-container .tasks .task .right-side .img-container{
+    display: flex;
+    justify-content: center;
+}
+.task-categories .task-categories-container .tasks .task .right-side img{
+    height: 130px;
+    width: 130px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* edit modal */
+.modal {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    border-radius: 8px;
+    background: rgb(255, 255, 255);
+    padding: 20px 50px;
+    transform: translate(-50%,-50%);
+    border: 1px solid rgb(204, 204, 204);
+    z-index: 1000;
+    width: 50%;
+    height: 60%;
+}
+.modal h3{
+    font-size: 24px;
+}
+.modal #editTaskForm{
+    padding: 10px 20px;
+    margin-top: 15px;
+}
+.modal input{
+    width: 100%;
+}
+.modal select{
+    border: none;
+    border-radius: 10px;
+    padding: 10px 10px;
+    width: 20%;
+    background-color: #e3e3e3;
+}
+.modal label{
+    margin-right: 15px;
+}
+.modal button{
+    border: none;
+    display: inline-flex;
+    border-radius: 10px;
+    font-size: 20px;
+    padding: 10px 10px;
+    width: 20%;
+    justify-content: center;
+    color: white;
+    background-color: #ff6867;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* Styles for screens up to 480px wide (e.g., small mobile devices in portrait) */
+@media only screen and (max-width: 480px) {
+    header{
+        padding: 4%;
+    }
+    header .toggle{
+    display: inline-block;
+    } 
+    .light header .toggle{
+    color: #000;
+    }    
+    .dark header .toggle{
+    color: #e3e3e3;
+    }  
+    header .logo a{
+        font-size: 16px;
+    }
+    header #dateDisplay{
+        font-size: 16px;
+        padding-top: 5px;
+    }
+    .left-nav{
+        height: 100% !important;
+        width: 70% !important;
+        bottom: 0 !important;
+        border-bottom-right-radius: 8px;
+        transform: translateX(0);
+        z-index: 9;
+    }
+    .left-nav .exit{
+        display: inline-block;
+        z-index: 10;
+    }
+    .left-nav img{
+        height: 85px !important;
+        width: 85px !important;
+        position: unset !important;
+        transform: none !important;
+        margin-bottom: 10px;
+    }
+    .left-nav .tabs{
+        grid-template-rows: repeat(3,30px) !important;
+        row-gap: 20px !important;
+    }
+    .left-nav .tabs .element{
+        padding: 10px !important;
+    }
+    .dashboard{
+        left: 0%;
+        width:100% !important;
+    }
+    .dashboard h2{
+        font-size: 24px;
+    }
+    .dashboard .windows{
+        display: block;
+    }
+    .dashboard .windows .to-do-window,
+    .dashboard .windows .task-status-window{
+        margin-bottom: 10px;
+    }
+   .add-task .add-task-container {
+    width: 80%;
+    height: 60%;
+   }
+   .add-task .add-task-container form input[type="file"]{
+    width: 80%;
+   }
+   .task-categories{
+    left:10%;
+    padding: 0;
+   }
+   .task-categories .task-categories-container .filter-container{
+    width: 100%;
+   }
+   .task-categories .task-categories-container .filter-container span{
+    padding: 5px 10px;
+    margin-left: 3px;
+    width: 10px;
+    font-size: 15px;
+   }
+   .task-categories .task-categories-container .tasks{
+    width: 100%;
+   }
+   .task-categories .task-categories-container .tasks .task{
+    grid-template-columns: 30px 1fr 100px;
+    height: 150px;
+    margin-left: 0;
+   }
+   .task-categories .task-categories-container .tasks .task .left-side .details{
+    width: 150px;
+    height: 50px;
+   }
+   .task-categories .task-categories-container .tasks .task .left-side .title{
+    font-size: 18px;
+   }
+   .task-categories .task-categories-container .tasks .task .left-side .btn-container button{
+    padding: 5px 10px;
+    margin-left: 4px;
+    bottom: 10px;
+    margin-top: 20px;
+   }
+   .task-categories .task-categories-container .tasks .task .right-side img{
+    height:110px;
+    width: 110px;
+   }
+   .modal {
+    height: 60%;
+    width: 80%;
+    padding: 20px;
+   }
+   .modal input{
+    height: 50px;
+   }
+   .modal #editTaskStatus{
+    width: 50%;
+   }
+   .modal button{
+     width: 30%;
+   }
+}
+
+/* Styles for screens between 481px and 768px wide (e.g., larger mobile devices in landscape, small tablets) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    header{
+        padding: 4%;
+    }
+    header .toggle{
+    display: inline-block;
+    }  
+    header .logo a{
+        font-size: 16px;
+    }
+    header #dateDisplay{
+        font-size: 16px;
+        padding-top: 5px;
+    }
+    .left-nav{
+        height: 100% !important;
+        width: 60% !important;
+        bottom: 0 !important;
+        border-bottom-right-radius: 8px;
+        transform: translateX(-100%);
+        z-index: 9;
+    }
+    .left-nav .exit{
+        display: inline-block;
+        z-index: 10;
+    }
+    .left-nav img{
+        height: 85px !important;
+        width: 85px !important;
+        position: unset !important;
+        transform: none !important;
+        margin-bottom: 10px;
+    }
+    .left-nav .tabs{
+        grid-template-rows: repeat(3,30px) !important;
+        row-gap: 20px !important;
+    }
+    .left-nav .tabs .element{
+        padding: 10px !important;
+    }
+     .dashboard{
+        left: 0%;
+        width:100% !important;
+    }
+    .dashboard .windows{
+        display: block;
+    }
+    .dashboard .windows .to-do-window,
+    .dashboard .windows .task-status-window{
+        margin-bottom: 10px;
+    }
+    .add-task .add-task-container {
+    width: 80%;
+    height: 60%;
+   }
+   .add-task .add-task-container form input[type="file"]{
+    width: 80%;
+   }
+    .task-categories{
+    left:10%;
+    padding:0;
+   }
+   .task-categories .task-categories-container .filter-container{
+    width: 100%;
+   }
+   .task-categories .task-categories-container .filter-container span{
+    padding: 5px 10px;
+    margin-left: 3px;
+    width: 10px;
+    font-size: 17px;
+   }
+   .task-categories .task-categories-container .tasks{
+    width: 100%;
+   }
+   .task-categories .task-categories-container .tasks .task{
+    grid-template-columns: 30px 1fr 1fr;
+    height: 150px;
+    margin-left: 5%;
+   }
+   .task-categories .task-categories-container .tasks .task .left-side .details{
+    width: 150px;
+    height: 50px;
+   }
+   .task-categories .task-categories-container .tasks .task .left-side .title{
+    font-size: 19px;
+   }
+   .task-categories .task-categories-container .tasks .task .left-side .btn-container button{
+    padding: 5px 10px;
+    margin-left: 2px;
+    bottom: 10px;
+   }
+   .task-categories .task-categories-container .tasks .task .right-side img{
+    height:110px;
+    width:110px;
+   }
+   .modal {
+    height: 60%;
+    width: 80%;
+    padding: 20px;
+   }
+   .modal input{
+    height: 50px;
+   }
+   .modal #editTaskStatus{
+    width: 50%;
+   }
+   .modal button{
+     width: 30%;
+   }
+}
+
+/* Styles for screens between 481px and 768px wide (e.g., larger mobile devices in landscape, small tablets) */
+@media only screen and (min-width: 769px) and (max-width:988px) {
+    header{
+        padding: 4%;
+    }
+    header .toggle{
+    display: inline-block;
+    }  
+    header .logo a{
+        font-size: 16px;
+    }
+    header #dateDisplay{
+        font-size: 16px;
+        padding-top: 5px;
+    }
+    .left-nav{
+        height: 100% !important;
+        width: 55% !important;
+        bottom: 0 !important;
+        border-bottom-right-radius: 8px;
+        transform: translateX(-100%);
+        z-index: 9;
+    }
+    .left-nav .exit{
+        display: inline-block;
+        z-index: 10;
+    }
+    .left-nav img{
+        height: 85px !important;
+        width: 85px !important;
+        position: unset !important;
+        transform: none !important;
+        margin-bottom: 10px;
+    }
+    .left-nav .tabs{
+        grid-template-rows: repeat(3,30px) !important;
+        row-gap: 20px !important;
+    }
+    .left-nav .tabs .element{
+        padding: 10px !important;
+    }
+     .dashboard{
+        left: 0%;
+        width:100% !important;
+     }
+    .add-task .add-task-container {
+    width: 80%;
+    height: 60%;
+   }
+   .add-task .add-task-container form input[type="file"]{
+    width: 80%;
+   }
+    .task-categories{
+    left:10%;
+    padding:0;
+   }
+   .task-categories .task-categories-container .filter-container{
+    width: 100%;
+   }
+   .task-categories .task-categories-container .filter-container span{
+    padding: 5px 10px;
+    margin-left: 3px;
+    width: 10px;
+    font-size: 17px;
+   }
+   .task-categories .task-categories-container .tasks{
+    width: 100%;
+   }
+   .task-categories .task-categories-container .tasks .task{
+    grid-template-columns: 30px 1fr 1fr;
+    height: 150px;
+    margin-left: 10%;
+   }
+   .task-categories .task-categories-container .tasks .task .left-side .details{
+    width: 300px;
+    height:50px;
+   }
+   .task-categories .task-categories-container .tasks .task .left-side .title{
+    font-size: 19px;
+   }
+   .task-categories .task-categories-container .tasks .task .left-side .btn-container button{
+    padding: 5px 10px;
+    margin-left: 2px;
+    bottom: 10px;
+   }
+   .task-categories .task-categories-container .tasks .task .right-side img{
+    height:110px;
+    width:110px;
+   }
+   .modal {
+    height: 60%;
+    width: 80%;
+    padding: 20px;
+   }
+   .modal input{
+    height: 50px;
+   }
+   .modal #editTaskStatus{
+    width: 50%;
+   }
+   .modal button{
+     width: 30%;
+   }
+}
