@@ -60,33 +60,34 @@ cd tassky
 
 2. **Set up Database**
 
- 1.Create a MySQL database named tassky_app (or modify in connect.php)
+ 1.Create a MySQL database named tassky_app (or modify in connect.php)  
  2.Import the SQL schema.
 
 3. Configure Database Connection
  $conn = mysqli_connect("localhost", "your_username", "your_password", "tassky");
 
 4. Run the App
-Use XAMPP, MAMP, or any local server
-Place files in your htdocs or server directory
-Navigate to http://localhost/Task - Copy/index.php
+Use XAMPP, MAMP, or any local server  
+Place files in your htdocs or server directory  
+Navigate to http://localhost/Task - Copy/index.php  
 
 
 ## 🧪 Usage
- 1.Register or log in to your account
- 2.Add new tasks with optional image upload
- 3.Track your progress via visual bars
- 4.Edit or delete tasks as needed
- 5.Filter tasks by their status
+ 1.Register or log in to your account  
+ 2.Add new tasks with optional image upload  
+ 3.Track your progress via visual bars  
+ 4.Edit or delete tasks as needed  
+ 5.Filter tasks by their status  
 
 # 🤝 Contributing
  Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 # 🙋‍♂️ Author
 
- Your Name
- GitHub: @Rabab02
- Email: rabab.sahsah@gmail.com
+ Your Name  
+ GitHub: @Rabab02  
+ Email: rabab.sahsah@gmail.com  
+
 
 
 
