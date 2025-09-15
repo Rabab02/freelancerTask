@@ -61,7 +61,7 @@ cd tassky
 2. **Set up Database**
 
  1.Create a MySQL database named tassky_app (or modify in connect.php)  
- 2.Import the SQL schema.
+ 2.Import the SQL schema. (attached with files , named tassky_app.sql)
 
 3. Configure Database Connection
  $conn = mysqli_connect("localhost", "your_username", "your_password", "tassky");
@@ -87,6 +87,7 @@ Navigate to http://localhost/Task - Copy/index.php
  Your Name  
  GitHub: @Rabab02  
  Email: rabab.sahsah@gmail.com  
+
 
 
 
