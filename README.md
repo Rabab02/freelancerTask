@@ -58,7 +58,7 @@ git clone https://github.com/Rabab02/freelancerTask.git
 cd tassky
 ```
 
-#2. **Set up Database**
+# 2. **Set up Database**
 
  1.Create a MySQL database named tassky_app (or modify in connect.php)
  2.Import the SQL schema.
@@ -66,13 +66,13 @@ cd tassky
 # 3. Configure Database Connection
  $conn = mysqli_connect("localhost", "your_username", "your_password", "tassky");
 
-#4. Run the App
+# 4. Run the App
 Use XAMPP, MAMP, or any local server
 Place files in your htdocs or server directory
 Navigate to http://localhost/Task - Copy/index.php
 
 
-# **🧪 Usage
+## 🧪 Usage
  1.Register or log in to your account
  2.Add new tasks with optional image upload
  3.Track your progress via visual bars
@@ -87,4 +87,5 @@ Navigate to http://localhost/Task - Copy/index.php
  Your Name
  GitHub: @Rabab02
  Email: rabab.sahsah@gmail.com
+
 
